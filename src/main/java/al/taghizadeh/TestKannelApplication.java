@@ -42,6 +42,8 @@ public class TestKannelApplication {
 
 	private static void sendMessage() {
 		MessageSender sender = new MessageSender();
+		logger.info("please insert sim count");
+		int simcount = Integer.valueOf(scanner.nextLine());
 		logger.info("please insert test id:");
 		String testId = scanner.nextLine();
 		logger.info("please insert messages count:");
@@ -52,7 +54,7 @@ public class TestKannelApplication {
 		String [] receivers = scanner.nextLine().split(",");
 		logger.info("should insert test id in message?(true, false)");
 		boolean insertTestId = Boolean.parseBoolean(scanner.nextLine());
-		logger.info("should insert message counter?");
+		logger.info("should insert message counter?(true, false)");
 		boolean insertCounter = Boolean.parseBoolean(scanner.nextLine());
 		String prefix = null;
 		try {
@@ -67,7 +69,7 @@ public class TestKannelApplication {
 					} else {
 						prefix = null;
 					}
-					sender.send(smsBoxUrl, smsBoxPort, receivers[j-1], prefix + messageBody, 0, sender.getDlrUrl(i + "-" + j), "polygator");
+					sender.send(smsBoxUrl, smsBoxPort, receivers[j-1], prefix + messageBody, 0, sender.getDlrUrl(i + "-" + j), null, simcount);
 				}
 			}
 		} catch (UnsupportedEncodingException e) {
