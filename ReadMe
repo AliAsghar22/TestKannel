@@ -5,7 +5,9 @@ This project is used to test sending and receiving sms using Kannel gatewy.
 Kannel installation & configuration:
 
 Use package manager to install kannel.
+```
 sudo apt-get install kannel.
+```
 
 Then copy two files in folder other to /etc/kannel/.
 Change the Kannel.conf file according to your modem. See Kannel's manual for more detail.
