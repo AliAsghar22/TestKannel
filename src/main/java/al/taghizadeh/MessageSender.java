@@ -62,7 +62,7 @@ public class MessageSender {
         logger.info("response : "+ response.toString());
         Thread.currentThread();
         try {
-            Thread.sleep(charsetUtil.getPartCount(message) * 5000/simCount);
+            Thread.sleep(charsetUtil.getPartCount(message) * 10000/simCount);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
