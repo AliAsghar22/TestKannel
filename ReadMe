@@ -1,0 +1,31 @@
+In the Name of Allah.
+
+This project is used to test sending and receiving sms using Kannel gatewy.
+
+Kannel installation & configuration:
+
+Use package manager to install kannel.
+sudo apt-get install kannel.
+
+Then copy two files in folder other to /etc/kannel/.
+Change the Kannel.conf file according to your modem. See Kannel's manual for more detail.
+Change /etc/default/kannel and uncomment START_SMSBOX in this file. You can comment START_WAPBOX if you don't need it.
+
+Testing kannel:
+
+Start kannel service:
+
+sudo service kannel start
+
+Check the log file in /var/log/kanne/bearerbox.log to see if Kannel is connected successfully to your modem(s).
+If you got permission denied error try to add full permission to your serial port. for example:
+
+sudo chmod 666 /dev/ttyUSB0
+
+Then compile this project with mvn:
+
+mvn package
+
+After that a jar file is built in target folder.
+Start project with:
+java -jar demo-0.0.1-SNAPSHOT.jar
